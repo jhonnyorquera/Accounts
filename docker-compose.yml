@@ -10,9 +10,9 @@ services:
       - challenge
     hostname: db
     environment:
-      POSTGRES_USER: postgres
+      POSTGRES_USER: master
       POSTGRES_DB: postgres
-      POSTGRES_PASSWORD: admin
+      POSTGRES_PASSWORD: pas1234
     ports:
       - 55432:5432
   backend:
