@@ -1,0 +1,44 @@
+version: "3"
+
+services:
+  db:
+    build:
+      context: ./DockerPostgresql
+      dockerfile: db.Dockerfile
+    container_name: db
+    networks:
+      - challenge
+    hostname: db
+    environment:
+      POSTGRES_USER: master
+      POSTGRES_DB: postgres
+      POSTGRES_PASSWORD: pas1234
+
+    ports:
+      - 55432:5432
+  customers:
+    ports:
+      - 8081:8081
+    build:
+      context: .
+      dockerfile: DockerfileCustomer
+    container_name: customers
+    networks:
+      - challenge
+    depends_on:
+      - db
+
+  accounts:
+    ports:
+      - 8080:8080
+    build:
+      context: .
+      dockerfile: DockerfileAccount
+    container_name: accounts
+    networks:
+      - challenge
+    depends_on:
+      - db
+networks:
+  challenge:
+
