@@ -5,6 +5,10 @@ Install "docker" in your enviroment
 Free ports: 55432, 8080 and 8081
 Note: if you want choose a port, please change in docker_compose-yml in ports secction for change database, customer and account ports. 
 
+Description
+I created two apis, one for customer and another for account, the communication between this apis is synchronous because transaction is online. Both apis are created with clean Architecture in layers
+
+
 For deploying api
 Step 
 1.- Download all repository from main branch
